@@ -10,7 +10,7 @@ Message queue service with the following characteristics:
 - Files
   - src/main/resources/log4j.properties
   - src/main/resources/config.properties 
-    - Configurable keys and the examples are as follows:
+    - Configurable keys and the examples:
 ```
 # address that Message queue service binds to
 host = 0.0.0.0 

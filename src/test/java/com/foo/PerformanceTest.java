@@ -19,14 +19,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/*
- curl -v -H "Content-Type: application/json" -d '{"owner":"john", "topic":"android"}' localhost:8080/v1/topic/register
- curl -v -H "Content-Type: application/json" -d '{"owner":"john", "topic":"android", "msg":"pixel3"}' localhost:8080/v1/message/publish
- curl -v -H "Content-Type: application/json" -d '{"user":"nico", "topic":"android"}' localhost:8080/v1/topic/subscribe
- curl -v -H "Content-Type: application/json" -d '{"user":"nico", "topic":"android"}' localhost:8080/v1/message/get
- curl -v -H "Content-Type: application/json" -d '{"owner":"john", "topic":"android", "msg":"galaxy23"}' localhost:8080/v1/message/publish
- curl -v -H "Content-Type: application/json" -d '{"user":"nico", "topic":"android", "msgIdx":"2"}' localhost:8080/v1/message/ack
-*/
 public class PerformanceTest {
   static final Jedis jedis = new Jedis("localhost");
   final String host = "localhost";
