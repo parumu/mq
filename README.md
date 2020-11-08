@@ -42,11 +42,17 @@ $ cd [project root directory]
 $ docker build -t mq .
 ```
 
-## Running integration tests
-- Integration tests require that Redis run locally. To set that up:
+## Running tests
+Tests in test directory contain unit and integration tests. 
+In order to run integration part of the tests, Redis needs to be running locally. To do so:
 ```
 $ cd [project root directory]
 $ docker-compose up
+```
+
+Then below should run both of the unit and integration tests
+```
+$ mvn test
 ```
 
 ## API
