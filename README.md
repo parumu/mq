@@ -18,9 +18,9 @@ host = 0.0.0.0
 # port that Message queue service listens to
 port = 8080
 
-# jedis host and port
-jedisHost = localhost
-jedisPort = 6379
+# Redis host and port
+redisHost = localhost
+redisPort = 6379
 
 maxQueueSize = 10000
 maxNameLen = 100
