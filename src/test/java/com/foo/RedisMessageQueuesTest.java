@@ -14,7 +14,8 @@ class RedisMessageQueuesTest {
   final int maxNameLen = 10;
   final int maxSubscribers = 1;
   final Cfg cfg = new Cfg(
-    "localhost", 8080, maxMsgSize, maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
+    "localhost", 8080, "localhost", 6379,
+    maxMsgSize, maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
 
   @BeforeEach
   void flushAll() {

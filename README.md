@@ -9,7 +9,29 @@ Message queue service with the following characteristics:
 ## Configuration
 - Files
   - src/main/resources/log4j.properties
-  - src/main/resources/config.properties
+  - src/main/resources/config.properties 
+    - Configurable keys and the examples are as follows:
+```
+# address that Message queue service binds to
+host = 0.0.0.0 
+
+# port that Message queue service listens to
+port = 8080
+
+# jedis host and port
+jedisHost = localhost
+jedisPort = 6379
+
+maxQueueSize = 10000
+maxNameLen = 100
+
+# 128KB = 128 * 1024 = 131072
+maxMsgSize = 131072
+
+maxTopics = 10000
+maxSubscribers = 10000
+```  
+  
 - Redis
   - Should set `maxmemory-policy: noeviction` to avoid Redis to evicts data from memory.
 
@@ -18,6 +40,13 @@ Run docker build command in the project root directory. e.g.
 ```
 $ cd [project root directory]
 $ docker build -t mq .
+```
+
+## Running integration tests
+- Integration tests require that Redis run locally. To set that up:
+```
+$ cd [project root directory]
+$ docker-compose up
 ```
 
 ## API
@@ -72,4 +101,5 @@ subscribers = subscriber * maxSubscribers * maxTopics
 
 maxMemoryUsage = lists + topics + owners + subscribers
 ```
+
 

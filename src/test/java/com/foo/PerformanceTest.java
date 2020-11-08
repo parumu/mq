@@ -134,7 +134,8 @@ public class PerformanceTest {
     CountDownLatch serverShutdown = new CountDownLatch(1);
 
     Cfg cfg = new Cfg(
-      "localhost", 8080, maxMsgSize, maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
+      "localhost", 8080, "localhost", 6379, maxMsgSize,
+      maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
     MessageQueues mq = new RedisMessageQueues(cfg);
 
     exec.submit(() -> {

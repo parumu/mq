@@ -32,7 +32,7 @@ public class RedisMessageQueues implements MessageQueues {
     this.maxTopics = String.valueOf(cfg.maxTopics);
     this.maxSubscribers = cfg.maxSubscribers;
 
-    Jedis jedis = new Jedis(cfg.host);
+    Jedis jedis = new Jedis(cfg.jedisHost, cfg.jedisPort);
     if (!jedis.hexists(global, numTopicsKey)) {
       jedis.hset(global, numTopicsKey, "0");
     }

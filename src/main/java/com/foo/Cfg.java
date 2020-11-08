@@ -7,6 +7,8 @@ import java.util.Properties;
 public class Cfg {
   public final String host;
   public final int port;
+  public final String jedisHost;
+  public final int jedisPort;
   public final int maxMsgSize;
   public final int maxQueueSize;
   public final int maxNameLen;
@@ -17,6 +19,8 @@ public class Cfg {
   Cfg(
     String host,
     int port,
+    String jedisHost,
+    int jedisPort,
     int maxMsgSize,
     int maxQueueSize,
     int maxNameLen,
@@ -25,6 +29,8 @@ public class Cfg {
   ) {
     this.host = host;
     this.port = port;
+    this.jedisHost = jedisHost;
+    this.jedisPort = jedisPort;
     this.maxMsgSize = maxMsgSize;
     this.maxQueueSize = maxQueueSize;
     this.maxNameLen = maxNameLen;
@@ -46,13 +52,15 @@ public class Cfg {
 
       String host = props.getProperty("host");
       int port = Integer.parseInt(props.getProperty("port"));
+      String jedisHost = props.getProperty("jedisHost");
+      int jedisPort = Integer.parseInt(props.getProperty("jedisPort"));
       int maxMsgSize = Integer.parseInt(props.getProperty("maxMsgSize"));
       int maxQueueSize = Integer.parseInt(props.getProperty("maxQueueSize"));
       int maxNameLen = Integer.parseInt(props.getProperty("maxNameLen"));
       int maxTopics = Integer.parseInt(props.getProperty("maxTopics"));
       int maxSubscribers = Integer.parseInt(props.getProperty("maxSubscribers"));
 
-      return new Cfg(host, port, maxMsgSize, maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
+      return new Cfg(host, port, jedisHost, jedisPort, maxMsgSize, maxQueueSize, maxNameLen, maxTopics, maxSubscribers);
     }
     catch (Exception ex) {
       throw new IllegalStateException("Failed to load config file: ", ex);
