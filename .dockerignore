@@ -1,0 +1,9 @@
+*.sh
+*.md
+docker-compose.yaml
+Dockerfile
+mq.iml
+target
+.idea
+data
+src/test
